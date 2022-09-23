@@ -5,8 +5,12 @@ def index
 end
 
 def create
-    cats =  Cat.create(cat_params)
-    render json: cats 
+    cat = Cat.create(cat_params)
+    if cat.valid?
+      render json: cat
+     else
+       render json: cat.errors, status: 422
+     end
 end
 
 def update
