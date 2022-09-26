@@ -24,7 +24,7 @@ def update
 end
 
 def destroy
-  cat = Cat.find(params[:id])
+  cat = Cat.find(params[:id]) 
   cat.destroy
 end
 
