@@ -25,7 +25,11 @@ end
 
 def destroy
   cat = Cat.find(params[:id]) 
-  cat.destroy
+  if cat.destroy
+    render json: cat
+  else
+    render json: cat.errors
+  end
 end
 
 private
